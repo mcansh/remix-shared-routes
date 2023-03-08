@@ -27,7 +27,9 @@ module.exports = {
     .map((pkg) => path.dirname(pkg)),
   routes: function routes(defineRoutes) {
     return defineRoutes((route) => {
-      let sharedRoutes = glob.sync("packages/routes/src/routes/**/*.tsx", {
+      let routesDir = "packages/routes/src/routes";
+      let absoluteRoutesDir = path.join(rootDir, routesDir);
+      let sharedRoutes = glob.sync(path.join(routesDir, "**/*.tsx"), {
         cwd: rootDir,
         nodir: true,
         absolute: true,
@@ -39,8 +41,14 @@ module.exports = {
           path.join(__dirname, this.appDirectory),
           routeFilePath
         );
-        let routePath = path.basename(routeFilePath, ext);
-        route(routePath, file);
+
+        let url = routeFilePath.slice(absoluteRoutesDir.length, -ext.length);
+
+        if (url.endsWith("/index") || url.endsWith("/route")) {
+          url = url.slice(0, -"/index".length);
+        }
+
+        route(url, file);
       }
     });
   },

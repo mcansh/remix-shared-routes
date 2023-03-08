@@ -1,1 +1,1 @@
-export { default as UhhPage, loader } from "./routes/uhhh";
+console.log("i'm just here so i don't get fined");

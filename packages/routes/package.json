@@ -22,7 +22,7 @@
     "typescript": "4.7.4"
   },
   "dependencies": {
-    "@remix-run/react": "^1.14.0",
+    "@remix-run/react": "^1.14.1",
     "react-dom": "^18.2.0"
   }
 }

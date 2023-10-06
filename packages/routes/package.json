@@ -3,26 +3,31 @@
   "version": "0.0.0",
   "private": true,
   "sideEffects": false,
+  "type": "module",
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": null
+    }
+  },
   "files": [
-    "dist/**"
+    "dist/**",
+    "src/**"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --external react,@remix-run/react",
-    "dev": "tsup src/index.ts --format esm,cjs --watch --dts --external react,@remix-run/react",
+    "build": "tsup src/index.ts --format esm --dts --external react,@remix-run/react",
+    "dev": "tsup src/index.ts --format esm --watch --dts --external react,@remix-run/react",
     "typecheck": "tsc"
   },
   "devDependencies": {
-    "@types/react": "18.0.17",
-    "@types/react-dom": "18.0.6",
-    "react": "^18.2.0",
-    "tsup": "6.2.2",
-    "typescript": "4.7.4"
+    "tsup": "7.2.0",
+    "typescript": "5.2.2"
   },
   "dependencies": {
-    "@remix-run/react": "^1.14.0",
-    "react-dom": "^18.2.0"
+    "glob": "^10.3.10"
   }
 }

@@ -4,7 +4,9 @@
     "module": "ESNext",
     "target": "ES2022",
     "jsx": "react-jsx",
-    "moduleResolution": "node"
+    "moduleResolution": "Bundler",
+    "moduleDetection": "force",
+    "noEmit": true
   },
   "include": ["src"],
   "exclude": ["dist", "build", "node_modules"]

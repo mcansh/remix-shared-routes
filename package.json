@@ -5,16 +5,16 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
-    "format": "prettier --write .",
-    "lint": "turbo run lint",
-    "typecheck": "turbo run typecheck"
+    "dev": "pnpm run --recursive --parallel dev",
+    "build": "pnpm run --recursive build",
+    "lint": "eslint --ignore-path .gitignore --fix --no-error-on-unmatched-pattern --cache .",
+    "format": "prettier --write --ignore-path .gitignore --ignore-unknown .",
+    "typecheck": "pnpm run --recursive --parallel typecheck"
   },
   "dependencies": {},
   "devDependencies": {
     "prettier": "^3.0.3",
-    "turbo": "^1.10.15"
+    "typescript": "^5.2.2"
   },
   "engines": {
     "node": ">=18.0.0",

@@ -5,7 +5,6 @@ import { globSync } from "glob";
 
 let __dirname = path.dirname(new URL(import.meta.url).pathname);
 let rootDir = path.resolve(__dirname, "..");
-
 let absoluteRoutesDir = path.resolve(rootDir, "src", "routes");
 
 export function getWatchPaths() {

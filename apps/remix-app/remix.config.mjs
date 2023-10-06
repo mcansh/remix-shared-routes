@@ -1,4 +1,4 @@
-import { sharedRoutes, getWatchPaths } from "routes";
+import { sharedRoutesFunction, getWatchPaths } from "routes";
 
 /** @type {import('@remix-run/dev').AppConfig} */
 export default {
@@ -6,5 +6,5 @@ export default {
   ignoredRouteFiles: [".*"],
   assetsBuildDirectory: "public/build",
   watchPaths: getWatchPaths(),
-  routes: (defineRoutes) => sharedRoutes(defineRoutes, "app"),
+  routes: (defineRoutes) => sharedRoutesFunction(defineRoutes, "app"),
 };

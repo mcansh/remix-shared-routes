@@ -1,4 +1,5 @@
 import * as path from "node:path";
+import { DefineRoutesFunction } from "@remix-run/dev/dist/config/routes";
 
 import { globSync } from "glob";
 
@@ -31,4 +32,17 @@ export function sharedRoutes(appRootDirectory: string) {
   });
 
   return urlForRoutes;
+}
+
+export function sharedRoutesFunction(
+  defineRoutes: DefineRoutesFunction,
+  appRootDirectory: string
+) {
+  let routes = sharedRoutes(appRootDirectory);
+
+  return defineRoutes((route) => {
+    for (let sharedRoute of routes) {
+      route(sharedRoute.url, sharedRoute.file);
+    }
+  });
 }

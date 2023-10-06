@@ -24,10 +24,14 @@
     "typecheck": "tsc"
   },
   "devDependencies": {
+    "@remix-run/dev": "^2.0.1",
     "tsup": "7.2.0",
     "typescript": "5.2.2"
   },
   "dependencies": {
     "glob": "^10.3.10"
+  },
+  "peerDependencies": {
+    "@remix-run/dev": "^2.0.1"
   }
 }

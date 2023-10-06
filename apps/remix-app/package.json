@@ -7,13 +7,13 @@
   "scripts": {
     "build": "remix build",
     "dev": "remix dev",
+    "start": "remix-serve ./build/index.js",
     "typecheck": "tsc"
   },
   "dependencies": {
     "@remix-run/node": "2.0.1",
     "@remix-run/react": "2.0.1",
-    "@vercel/remix": "^2.0.1",
-    "isbot": "latest",
+    "isbot": "^3.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "routes": "0.0.0"
